@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro de Montadora</title>
+</head>
+<body>
+
+    <h2>Cadastrar Montadora<h2>
+    <form action="/show" method="POST">
+        <input type="text" placeholder="Nome" name="name">
+        <input type="text" placeholder="Sobrenome" name="surname">
+        <button type="submit">Submit</button>
+    </form> 
+    <h1>Lista de Montadoras</h1>
+	<ul>
+		<% for(var i = 0; i < montadora.length; i++){ %>
+			<li><%= montadora[i].MONID %> - <%= montadora[i].MONNOME %>
+				<a href="/cliente/<%= i %>/editar">Editar</a>
+				&nbsp;|&nbsp;
+				<a href="/cliente/<%= i %>">Excluir</a>
+			</li>
+		<% } %>
+	</ul>
+</body>
+</html>

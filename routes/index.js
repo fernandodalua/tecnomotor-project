@@ -16,9 +16,10 @@ router.get('/', function(req, res) {
 });
 
 var montadora = [];
-var veiculo = [];
-var conector = [];
-var sistema = [];
+//var veiculo = [];
+//var conector = [];
+//var sistema = [];
+//var tiposistema = [];
 
 router.get('/montadora', function(req, res) {	
 	DB.all('SELECT * FROM MONTADORA',(err, results) => {
@@ -31,6 +32,7 @@ router.post('/cadastramontadora', function(req, res) {
 	DB.run('INSERT INTO MONTADORA (MONNOME) VALUES (?)',[req.body.name]);
 	DB.all('SELECT * FROM MONTADORA',(err, results) => {
 		console.log(results);
+		montadora = results;
 		res.render('montadora', {page:'Montadora', menuId:'montadora', montadora: results});
 	})
 });
@@ -87,7 +89,7 @@ router.get('/tiposistema', function(req, res) {
 	})
 });
 
-router.post('/cadastrasistema', function(req, res) {
+router.post('/cadastratiposistema', function(req, res) {
 	DB.run('INSERT INTO TIPOSISTEMA (TPSNOME) VALUES (?)',[req.body.name]);
         DB.all('SELECT * FROM TIPOSISTEMA',(err, results) => {
                 console.log(results);

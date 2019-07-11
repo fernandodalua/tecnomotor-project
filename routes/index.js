@@ -26,6 +26,10 @@ router.get('/', function(req, res) {
 	res.render('index', {page:'Home', menuId:'home', montadora: montadora, veiculo: veiculo, conector: conector, sistema: sistema, tiposistema: tiposistema});
 });
 
+router.post('/cadastraaplicacao', function(req, res){
+	console.log(req);
+});
+
 router.get('/montadora', function(req, res) {	
 	DB.all('SELECT * FROM MONTADORA',(err, results) => {
 		console.log(results);

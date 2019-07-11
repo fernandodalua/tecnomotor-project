@@ -8,41 +8,46 @@
 <div class="container-fluid bg-3 text-center">    
   <h3><%= page %></h3><br>
   <div class="row">
+  <form action="/cadastraaplicacao" method="POST">
     <div class="col-sm-2">
-      <select name="select">
+      <select name="montadora">
 		<% for(var i = 0; i < montadora.length; i++){ %>
           <option value="<%= montadora[i].MONID %> "> <%= montadora[i].MONNOME %> </option>
         <% } %>
       </select>      
     </div>
     <div class="col-sm-2">
-      <select name="select">
+      <select name="veiculo">
 		<% for(var i = 0; i < veiculo.length; i++){ %>
           <option value="<%= veiculo[i].VEIID %> "> <%= veiculo[i].VEINOME %> </option>
         <% } %>
       </select>      
     </div>
     <div class="col-sm-2">
-      <select name="select">
+      <select name="conector">
 		<% for(var i = 0; i < conector.length; i++){ %>
           <option value="<%= conector[i].CONID %> "> <%= conector[i].CONNOME %> </option>
         <% } %>
       </select>      
     </div>
 	<div class="col-sm-2">
-      <select name="select">
+      <select name="sistema">
 		<% for(var i = 0; i < sistema.length; i++){ %>
           <option value="<%= sistema[i].SISID %> "> <%= sistema[i].SISNOME %> </option>
         <% } %>
       </select>      
     </div>
 	<div class="col-sm-2">
-      <select name="select">
+      <select name="tiposistema">
 		<% for(var i = 0; i < tiposistema.length; i++){ %>
           <option value="<%= tiposistema[i].TPSID %> "> <%= tiposistema[i].TPSNOME %> </option>
         <% } %>
       </select>      
     </div>
+	<div class="col-sm-2">
+		<button type="submit">Cadastrar Aplicação</button>
+	</div>
+  </form> 
   </div>
 </div>
 </body>

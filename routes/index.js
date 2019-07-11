@@ -80,4 +80,19 @@ router.post('/cadastrasistema', function(req, res) {
         })
 });
 
+router.get('/tiposistema', function(req, res) {
+	DB.all('SELECT * FROM TIPOSISTEMA',(err, results) => {
+		console.log(results);
+		res.render('tiposistema', {page:'Tipo do Sistema', menuId:'tiposistema', tiposistema: results});
+	})
+});
+
+router.post('/cadastrasistema', function(req, res) {
+	DB.run('INSERT INTO TIPOSISTEMA (TPSNOME) VALUES (?)',[req.body.name]);
+        DB.all('SELECT * FROM TIPOSISTEMA',(err, results) => {
+                console.log(results);
+                res.render('tiposistema', {page:'Tipo do Sistema', menuId:'tiposistema', tiposistema: results});
+        })
+});
+
 module.exports = router;

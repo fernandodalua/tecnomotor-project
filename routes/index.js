@@ -20,15 +20,15 @@ var montadora = [];
 router.get('/montadora', function(req, res) {	
 	DB.all('SELECT * FROM MONTADORA',(err, results) => {
 		console.log(results);
-		res.render('montadora', {page:'Montadora', menuId:'montadora', montadora: montadora});
+		res.render('montadora', {page:'Montadora', menuId:'montadora', montadora: results});
 	})
 });
 
-router.get('/cadastramontadora', function(req, res) {
+router.post('/cadastramontadora', function(req, res) {
 	DB.run('INSERT INTO MONTADORA (MONNOME) VALUES (?)',[req.body.name]);
 	DB.all('SELECT * FROM MONTADORA',(err, results) => {
 		console.log(results);
-		res.render('montadora', {page:'Montadora', menuId:'montadora', montadora: montadora});
+		res.render('montadora', {page:'Montadora', menuId:'montadora', montadora: results});
 	})
 });
 

@@ -8,15 +8,24 @@
 <div class="container-fluid bg-3 text-center">    
   <h3><%= page %></h3><br>
   <div class="row">
-    <div class="col-sm-4">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      
+    <div class="col-sm-6">
+      <h2>Cadastrar Veiculo<h2>
+      <form action="/cadastraveiculo" method="POST">
+          <input type="text" placeholder="Nome" name="name">          
+          <button type="submit">Cadastrar</button>
+      </form> 
     </div>
-    <div class="col-sm-4"> 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </div>
-    <div class="col-sm-4"> 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <div class="col-sm-6"> 
+      <h1>Lista de Veiculos</h1>
+      <ul>
+        <% for(var i = 0; i < veiculo.length; i++){ %>
+          <li><%= veiculo[i].VEIID %> - <%= veiculo[i].VEINOME %>
+            <a href="#<%= i %>/editar">Editar</a>
+            &nbsp;|&nbsp;
+            <a href="#<%= i %>">Excluir</a>
+          </li>
+        <% } %>
+      </ul>
     </div>
   </div>
 </div>

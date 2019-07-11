@@ -11,11 +11,19 @@ const DB = new sqlite3.Database(DB_PATH, function(err){
 });
 
 var montadora = [];
+var veiculo = [];
+var conector = [];
+var sistema = [];
+var tiposistema = [];
 
 /* GET home page. */
 router.get('/', function(req, res) {
 	DB.all('SELECT * FROM MONTADORA',(err, results) => { montadora = results; })
-	res.render('index', {page:'Home', menuId:'home', montadora: montadora});
+	DB.all('SELECT * FROM VEICULO',(err, results) => { veiculo = results; })
+	DB.all('SELECT * FROM CONECTOR',(err, results) => { conector = results; })
+	DB.all('SELECT * FROM SISTEMA',(err, results) => { sistema = results; })
+	DB.all('SELECT * FROM TIPOSISTEMA',(err, results) => { tiposistema = results; })
+	res.render('index', {page:'Home', menuId:'home', montadora: montadora, veiculo: veiculo, conector: conector, sistema: sistema, tiposistema: tiposistema});
 });
 
 router.get('/montadora', function(req, res) {	

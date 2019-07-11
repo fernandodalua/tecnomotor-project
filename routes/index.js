@@ -15,6 +15,7 @@ var veiculo = [];
 var conector = [];
 var sistema = [];
 var tiposistema = [];
+var aplicacao = [];
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -23,12 +24,16 @@ router.get('/', function(req, res) {
 	DB.all('SELECT * FROM CONECTOR',(err, results) => { conector = results; })
 	DB.all('SELECT * FROM SISTEMA',(err, results) => { sistema = results; })
 	DB.all('SELECT * FROM TIPOSISTEMA',(err, results) => { tiposistema = results; })
-	res.render('index', {page:'Home', menuId:'home', montadora: montadora, veiculo: veiculo, conector: conector, sistema: sistema, tiposistema: tiposistema});
+	DB.all('SELECT * FROM APLICACAO',(err, results) => { 
+		res.render('index', {page:'Home', menuId:'home', montadora: montadora, veiculo: veiculo, conector: conector, sistema: sistema, tiposistema: tiposistema, aplicacao: results});
+	});
 });
 
 router.post('/cadastraaplicacao', function(req, res){
 	DB.run('INSERT INTO APLICACAO (MONID, VEIID, CONID, SISID, TPSID, APLANOINICIAL, APLANOFINAL) VALUES (?,?,?,?,?,?,?)',[req.body.montadora], [req.body.veiculo], [req.body.conector], [req.body.sistema], [req.body.tiposistema], [req.body.anoinicial], [req.body.anofinal]);
-	res.render('index', {page:'Home', menuId:'home', montadora: montadora, veiculo: veiculo, conector: conector, sistema: sistema, tiposistema: tiposistema});
+	DB.all('SELECT * FROM APLICACAO',(err, results) => { 
+		res.render('index', {page:'Home', menuId:'home', montadora: montadora, veiculo: veiculo, conector: conector, sistema: sistema, tiposistema: tiposistema, aplicacao: results});
+	});
 });
 
 router.get('/montadora', function(req, res) {	

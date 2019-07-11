@@ -44,18 +44,31 @@
         <% } %>
       </select>      
     </div>
-	<div class="col-sm-1">
+	<div class="col-sm-2">
 		<p>Ano Inicial</p><br>
 		<input type="text" name="anoinicial">  
 	</div>
-	<div class="col-sm-1">
+	<div class="col-sm-2">
 		<p>Ano Final</p><br>
 		<input type="text" name="anofinal">  
 	</div>
-	<div class="col-sm-1">
+	<div class="col-sm-2">
 		<button type="submit">Cadastrar Aplicação</button>
 	</div>
   </form> 
+  </div>
+  <div class="row">
+	<div class="col-sm-12">
+		  <h1>Lista de Aplicações</h1>
+		  <ul>
+			<% for(var i = 0; i < aplicacao.length; i++){ %>
+			  <li><%= aplicacao[i].MONID %> - <%= aplicacao[i].VEIID %> - <%= aplicacao[i].CONID %> - <%= aplicacao[i].SISID %> - <%= aplicacao[i].TPSID %> - <%= aplicacao[i].APLANOINICIAL %> - <%= aplicacao[i].APLANOFINAL %>		  
+				&nbsp;|&nbsp;
+				<a href="#<%= i %>">Excluir</a>
+			  </li>
+			<% } %>
+		  </ul>
+	  </div>
   </div>
 </div>
 </body>

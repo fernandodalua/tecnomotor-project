@@ -1,5 +1,5 @@
-var sqlite3 = require('sqlite3').verbose();
-var DB_PATH = 'DB.sqlite3';
+const sqlite3 = require('sqlite3').verbose();
+const DB_PATH = 'DB.sqlite3';
 
 const DB = new sqlite3.Database(DB_PATH, function(err){
     if (err) {
@@ -22,7 +22,7 @@ const DB = new sqlite3.Database(DB_PATH, function(err){
 	    }
 	})
 
-	//DB.close()
+	DB.close()
 });
 
 dbSchema = `CREATE TABLE IF NOT EXISTS MONTADORA (
@@ -60,3 +60,5 @@ dbSchema = `CREATE TABLE IF NOT EXISTS MONTADORA (
 	FOREIGN KEY(SISID) REFERENCES SISTEMA(SISID),
 	FOREIGN KEY(TPSID) REFERENCES TIPOSISTEMA(TPSID)
 );`
+
+module.exports = database;

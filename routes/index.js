@@ -16,6 +16,7 @@ router.get('/', function(req, res) {
 });
 
 var montadora = [];
+var veiculo = [];
 
 router.get('/montadora', function(req, res) {	
 	DB.all('SELECT * FROM MONTADORA',(err, results) => {
@@ -33,7 +34,18 @@ router.post('/cadastramontadora', function(req, res) {
 });
 
 router.get('/veiculo', function(req, res) {
-  res.render('veiculo', {page:'Veiculo', menuId:'veiculo'});
+	DB.all('SELECT * FROM VEICULO',(err, results) => {
+		console.log(results);
+		res.render('veiculo', {page:'Veiculo', menuId:'veiculo', veiculo: results});
+	})
+});
+
+router.post('/cadastraveiculo', function(req, res) {
+	DB.run('INSERT INTO VEICULO (VEINOME) VALUES (?)',[req.body.name]);
+        DB.all('SELECT * FROM VEICULO',(err, results) => {
+                console.log(results);
+                res.render('veiculo', {page:'Veiculo', menuId:'veiculo', veiculo: results});
+        })
 });
 
 module.exports = router;

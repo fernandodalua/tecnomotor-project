@@ -30,7 +30,7 @@ router.get('/', function(req, res) {
 });
 
 router.post('/cadastraaplicacao', function(req, res){
-	DB.run('INSERT INTO APLICACAO (MONID, VEIID, CONID, SISID, TPSID, APLANOINICIAL, APLANOFINAL) VALUES (?,?,?,?,?,?,?)',[req.body.montadora], [req.body.veiculo], [req.body.conector], [req.body.sistema], [req.body.tiposistema], [req.body.anoinicial], [req.body.anofinal]);
+	DB.run('INSERT INTO APLICACAO (MONID, VEIID, CONID, SISID, TPSID, APLANOINICIAL, APLANOFINAL) VALUES (?),(?),(?),(?),(?),(?),(?)',[req.body.montadora], [req.body.veiculo], [req.body.conector], [req.body.sistema], [req.body.tiposistema], [req.body.anoinicial], [req.body.anofinal]);
 	DB.all('SELECT * FROM APLICACAO',(err, results) => { 
 		res.render('index', {page:'Home', menuId:'home', montadora: montadora, veiculo: veiculo, conector: conector, sistema: sistema, tiposistema: tiposistema, aplicacao: results});
 	});

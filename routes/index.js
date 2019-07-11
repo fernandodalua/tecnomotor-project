@@ -1,6 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var database = require('../database');
+var sqlite3 = require('sqlite3').verbose();
+var DB_PATH = 'DB.sqlite3';
+
+const DB = new sqlite3.Database(DB_PATH, function(err){
+    if (err) {
+        console.log(err)
+        return
+    }
+});
 
 /* GET home page. */
 router.get('/', function(req, res) {

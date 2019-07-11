@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+ <% include partials/head %> 
+</head>
+<body>
+<% include partials/menu %>
+<div class="container-fluid bg-3 text-center">    
+  <h3><%= page %></h3><br>
+  <div class="row">
+    <div class="col-sm-6">
+      <h2>Cadastrar Conector<h2>
+      <form action="/cadastraconector" method="POST">
+          <input type="text" placeholder="Nome" name="name">          
+          <button type="submit">Cadastrar</button>
+      </form> 
+    </div>
+    <div class="col-sm-6"> 
+      <h1>Lista de Conectores</h1>
+      <ul>
+        <% for(var i = 0; i < conector.length; i++){ %>
+          <li><%= conector[i].CONID %> - <%= conector[i].CONNOME %>
+            <a href="#<%= i %>/editar">Editar</a>
+            &nbsp;|&nbsp;
+            <a href="#<%= i %>">Excluir</a>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+<% include partials/script %>
+</html>

@@ -17,6 +17,7 @@ router.get('/', function(req, res) {
 
 var montadora = [];
 var veiculo = [];
+var conector = [];
 
 router.get('/montadora', function(req, res) {	
 	DB.all('SELECT * FROM MONTADORA',(err, results) => {
@@ -45,6 +46,21 @@ router.post('/cadastraveiculo', function(req, res) {
         DB.all('SELECT * FROM VEICULO',(err, results) => {
                 console.log(results);
                 res.render('veiculo', {page:'Veiculo', menuId:'veiculo', veiculo: results});
+        })
+});
+
+router.get('/conector', function(req, res) {
+	DB.all('SELECT * FROM CONECTOR',(err, results) => {
+		console.log(results);
+		res.render('conector', {page:'Conector', menuId:'conector', conector: results});
+	})
+});
+
+router.post('/cadastraconector', function(req, res) {
+	DB.run('INSERT INTO CONECTOR (CONNOME) VALUES (?)',[req.body.name]);
+        DB.all('SELECT * FROM CONECTOR',(err, results) => {
+                console.log(results);
+                res.render('conector', {page:'Conector', menuId:'conector', conector: results});
         })
 });
 

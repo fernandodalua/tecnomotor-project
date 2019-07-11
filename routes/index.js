@@ -10,16 +10,13 @@ const DB = new sqlite3.Database(DB_PATH, function(err){
     }
 });
 
+var montadora = [];
+
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', {page:'Home', menuId:'home', montadora: montadora});
+	DB.all('SELECT * FROM MONTADORA',(err, results) => { montadora = results; })
+	res.render('index', {page:'Home', menuId:'home', montadora: montadora});
 });
-
-var montadora = [];
-//var veiculo = [];
-//var conector = [];
-//var sistema = [];
-//var tiposistema = [];
 
 router.get('/montadora', function(req, res) {	
 	DB.all('SELECT * FROM MONTADORA',(err, results) => {

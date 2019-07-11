@@ -1,21 +1,19 @@
 {
   "name": "tecnomotor-project",
-  "version": "1.0.0",
-  "description": "Projeto para a Tecnomotor ",
-  "main": "server.js",
+  "version": "1.1.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "start": "nodejs ./bin/www"
   },
-  "author": "Fernando Henrique da Silva",
-  "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "ejs": "^2.6.2",
-    "express": "^4.17.1",
-    "sqlite3": "^4.0.9"
-  },
-  "devDependencies": {
-    "nodemon": "^1.19.1"
+    "body-parser": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "debug": "~0.7.4",
+    "ejs": "~0.8.5",
+    "express": "~4.0.0",
+    "gyp": "^0.5.0",
+    "morgan": "~1.0.0",
+    "sqlite3": "^4.0.9",
+    "static-favicon": "~1.0.0"
   }
 }

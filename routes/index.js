@@ -9,7 +9,11 @@ router.get('/', function(req, res) {
 var montadora = [];
 
 router.get('/montadora', function(req, res) {
-  res.render('montadora', {page:'Montadora', menuId:'montadora', montadora: montadora});
+	DB.run('INSERT INTO MONTADORA (MONNOME) VALUES (?)',[req.body.name]);
+	DB.all('SELECT * FROM MONTADORA',(err, results) => {
+		console.log(results);
+		res.render('montadora', {page:'Montadora', menuId:'montadora', montadora: montadora});
+	})
 });
 
 router.get('/veiculo', function(req, res) {

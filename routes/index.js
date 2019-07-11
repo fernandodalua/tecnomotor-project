@@ -12,7 +12,7 @@ const DB = new sqlite3.Database(DB_PATH, function(err){
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', {page:'Home', menuId:'home'});
+  res.render('index', {page:'Home', menuId:'home', montadora: montadora});
 });
 
 var montadora = [];

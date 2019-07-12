@@ -145,7 +145,13 @@ router.get('/removetiposistema/:id', function(req, res) {
 router.get('/removeaplicacao/:id', function(req, res) {
 	const id = req.params.id;
 	DB.run('DELETE FROM APLICACAO WHERE APLID =?',id);
-	res.redirect('/'); 
+	res.redirect('/');
+});
+
+router.get('/visualizarconector/:id',function(req, res){
+	const id = req.params.id;
+	console.log(id);
+	res.redirect('/');
 });
 
 module.exports = router;

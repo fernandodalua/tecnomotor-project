@@ -114,7 +114,7 @@ router.post('/cadastratiposistema', function(req, res) {
 
 router.get('/removemontadora/:id', function(req, res) {
 	const id = req.params.id;
-	DB.run('DELETE FROM MONTADORA WHERE VEIID =?',id);
+	DB.run('DELETE FROM MONTADORA WHERE MONID =?',id);
 });
 
 router.get('/removeveiculo/:id', function(req, res) {
@@ -128,22 +128,22 @@ router.get('/removeveiculo/:id', function(req, res) {
 
 router.get('/removeconector/:id', function(req, res) {
 	const id = req.params.id;
-	DB.run('DELETE FROM CONECTOR WHERE VEIID =?',id);
+	DB.run('DELETE FROM CONECTOR WHERE CONID =?',id);
 });
 
 router.get('/removesistema/:id', function(req, res) {
 	const id = req.params.id;
-	DB.run('DELETE FROM SISTEMA WHERE VEIID =?',id);
+	DB.run('DELETE FROM SISTEMA WHERE SISID =?',id);
 });
 
 router.get('/removetiposistema/:id', function(req, res) {
 	const id = req.params.id;
-	DB.run('DELETE FROM TIPOSISTEMA WHERE VEIID =?',id);
+	DB.run('DELETE FROM TIPOSISTEMA WHERE TPSID =?',id);
 });
 
 router.get('/removeaplicacao/:id', function(req, res) {
 	const id = req.params.id;
-	DB.run('DELETE FROM APLICACAO WHERE VEIID =?',id);
+	DB.run('DELETE FROM APLICACAO WHERE APLID =?',id);
 });
 
 module.exports = router;

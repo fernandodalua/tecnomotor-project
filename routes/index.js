@@ -24,7 +24,7 @@ router.get('/', function(req, res) {
 	DB.all('SELECT * FROM CONECTOR',(err, results) => { conector = results; })
 	DB.all('SELECT * FROM SISTEMA',(err, results) => { sistema = results; })
 	DB.all('SELECT * FROM TIPOSISTEMA',(err, results) => { tiposistema = results; })
-	DB.all('SELECT * FROM APLICACAO',(err, results) => { 
+	DB.all('SELECT A.APLID, M.MONNOME, V.VEINOME, C.CONNOME, S.SISNOME, T.TPSNOME, A.APLANOINICIAL, A.APLANOFINAL FROM APLICACAO A, MONTADORA M, VEICULO V, CONECTOR C, SISTEMA S, TIPOSISTEMA T WHERE A.MONID = M.MONID AND A.VEIID = V.VEIID AND A.CONID = C.CONID AND A.SISID = S.SISID AND A.TPSID = T.TPSID',(err, results) => { 
 		res.render('index', {page:'Home', menuId:'home', montadora: montadora, veiculo: veiculo, conector: conector, sistema: sistema, tiposistema: tiposistema, aplicacao: results});
 	});
 });

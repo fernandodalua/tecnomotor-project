@@ -115,6 +115,7 @@ router.post('/cadastratiposistema', function(req, res) {
 router.get('/removemontadora/:id', function(req, res) {
 	const id = req.params.id;
 	DB.run('DELETE FROM MONTADORA WHERE MONID =?',id);
+	res.redirect('/montadora');  
 });
 
 router.get('/removeveiculo/:id', function(req, res) {

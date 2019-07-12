@@ -148,11 +148,10 @@ router.get('/removeaplicacao/:id', function(req, res) {
 	res.redirect('/');
 });
 
-router.get('/visualizarconector/:id',function(req, res){
+/*router.get('/visualizarconector/:id',function(req, res){
 	const id = req.params.id;
 	console.log(id);
-	var popup = document.getElementById("myPopup");
-	popup.classList.toggle("show");
-});
+	res.redirect('/');
+});*/
 
 module.exports = router;

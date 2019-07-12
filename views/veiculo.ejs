@@ -20,9 +20,8 @@
       <ul>
         <% for(var i = 0; i < veiculo.length; i++){ %>
           <li><%= veiculo[i].VEIID %> - <%= veiculo[i].VEINOME %>
-            &nbsp;|&nbsp;
-			<% var j = i + 1 %>
-            <a href="/removeveiculo/<%= j %>">Excluir</a>
+            &nbsp;|&nbsp;			
+            <a href="/removeveiculo/<%= veiculo[i].VEIID %>">Excluir</a>
           </li>
         <% } %>
       </ul>

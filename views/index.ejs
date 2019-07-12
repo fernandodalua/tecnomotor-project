@@ -62,9 +62,9 @@
 		  <h1>Lista de Aplicações</h1>
 		  <ul>
 			<% for(var i = 0; i < aplicacao.length; i++){ %>
-			  <li><%= aplicacao[i].MONID %> - <%= aplicacao[i].VEIID %> - <%= aplicacao[i].CONID %> - <%= aplicacao[i].SISID %> - <%= aplicacao[i].TPSID %> - <%= aplicacao[i].APLANOINICIAL %> - <%= aplicacao[i].APLANOFINAL %>		  
+			  <li><%= aplicacao[i].APLID %> - <%= aplicacao[i].MONID %> - <%= aplicacao[i].VEIID %> - <%= aplicacao[i].CONID %> - <%= aplicacao[i].SISID %> - <%= aplicacao[i].TPSID %> - <%= aplicacao[i].APLANOINICIAL %> - <%= aplicacao[i].APLANOFINAL %>		  
 				&nbsp;|&nbsp;
-				<a href="#<%= i %>">Excluir</a>
+				<a href="/removeaplicacao/<%= aplicacao[i].APLID %>">Excluir</a>
 			  </li>
 			<% } %>
 		  </ul>

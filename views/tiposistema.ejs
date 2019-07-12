@@ -21,7 +21,7 @@
         <% for(var i = 0; i < tiposistema.length; i++){ %>
           <li><%= tiposistema[i].TPSID %> - <%= tiposistema[i].TPSNOME %>
             &nbsp;|&nbsp;
-            <a href="#<%= i %>">Excluir</a>
+            <a href="/removetiposistema/<%= tiposistema[i].TPSID %>">Excluir</a>
           </li>
         <% } %>
       </ul>

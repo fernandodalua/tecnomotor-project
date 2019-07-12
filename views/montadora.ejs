@@ -21,7 +21,7 @@
         <% for(var i = 0; i < montadora.length; i++){ %>
           <li><%= montadora[i].MONID %> - <%= montadora[i].MONNOME %>
             &nbsp;|&nbsp;
-            <a href="#<%= i %>">Excluir</a>
+            <a href="/removemontadora/<%= montadora[i].MONID %>">Excluir</a>
           </li>
         <% } %>
       </ul>

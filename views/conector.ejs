@@ -21,7 +21,7 @@
         <% for(var i = 0; i < conector.length; i++){ %>
           <li><%= conector[i].CONID %> - <%= conector[i].CONNOME %>
             &nbsp;|&nbsp;
-            <a href="#<%= i %>">Excluir</a>
+            <a href="/removeconector/<%= conector[i].CONID %>">Excluir</a>
           </li>
         <% } %>
       </ul>

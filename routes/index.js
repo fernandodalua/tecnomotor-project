@@ -112,6 +112,11 @@ router.post('/cadastratiposistema', function(req, res) {
         })
 });
 
+router.get('/removemontadora/:id', function(req, res) {
+	const id = req.params.id;
+	DB.run('DELETE FROM MONTADORA WHERE VEIID =?',id);
+});
+
 router.get('/removeveiculo/:id', function(req, res) {
 	const id = req.params.id;
 	DB.run('DELETE FROM VEICULO WHERE VEIID =?',id);
@@ -119,6 +124,26 @@ router.get('/removeveiculo/:id', function(req, res) {
 		console.log(results);
 		res.render('veiculo', {page:'Veiculo', menuId:'veiculo', veiculo: results});
 	})
+});
+
+router.get('/removeconector/:id', function(req, res) {
+	const id = req.params.id;
+	DB.run('DELETE FROM CONECTOR WHERE VEIID =?',id);
+});
+
+router.get('/removesistema/:id', function(req, res) {
+	const id = req.params.id;
+	DB.run('DELETE FROM SISTEMA WHERE VEIID =?',id);
+});
+
+router.get('/removetiposistema/:id', function(req, res) {
+	const id = req.params.id;
+	DB.run('DELETE FROM TIPOSISTEMA WHERE VEIID =?',id);
+});
+
+router.get('/removeaplicacao/:id', function(req, res) {
+	const id = req.params.id;
+	DB.run('DELETE FROM APLICACAO WHERE VEIID =?',id);
 });
 
 module.exports = router;

@@ -21,7 +21,7 @@
         <% for(var i = 0; i < sistema.length; i++){ %>
           <li><%= sistema[i].SISID %> - <%= sistema[i].SISNOME %>
             &nbsp;|&nbsp;
-            <a href="#<%= i %>">Excluir</a>
+            <a href="/removesistema/<%= sistema[i].SISID %>">Excluir</a>
           </li>
         <% } %>
       </ul>

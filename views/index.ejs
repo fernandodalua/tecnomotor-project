@@ -68,9 +68,7 @@
 		  <ul>
 			<% for(var i = 0; i < aplicacao.length; i++){ %>
 			  <li><%= aplicacao[i].APLID %> - <%= aplicacao[i].MONNOME %> - <%= aplicacao[i].VEINOME %> - <%= aplicacao[i].CONNOME %> - <%= aplicacao[i].SISNOME %> - <%= aplicacao[i].TPSNOME %> - <%= aplicacao[i].APLANOINICIAL %> - <%= aplicacao[i].APLANOFINAL %>		  
-				<div class="popup" onclick="myFunction()">Ver Conector
-					<span class="popuptext" id="myPopup"><%= aplicacao[i].CONNOME %></span>
-				</div>
+				<a href="/visualizarconector/<%= aplicacao[i].CONNOME %>">Ver Conector</a>
 				&nbsp;|&nbsp;
 				<a href="/removeaplicacao/<%= aplicacao[i].APLID %>">Excluir</a>
 			  </li>
@@ -79,12 +77,6 @@
 	  </div>
   </div>
 </div>
-<script>
-function myFunction() {
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
-}
-</script>
 </body>
 <% include partials/script %>
 </html>

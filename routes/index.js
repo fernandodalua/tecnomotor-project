@@ -148,10 +148,10 @@ router.get('/removeaplicacao/:id', function(req, res) {
 	res.redirect('/');
 });
 
-/*router.get('/visualizarconector/:id',function(req, res){
+router.get('/visualizarconector/:id',function(req, res){
 	const id = req.params.id;
 	console.log(id);
-	res.redirect('/');
-});*/
+	res.redirect('/images/conector/Con1.jpg');
+});
 
 module.exports = router;

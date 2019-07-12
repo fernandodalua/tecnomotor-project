@@ -9,7 +9,7 @@
   <h3><%= page %></h3><br>
   <div class="row">
   <form action="/cadastraaplicacao" method="POST">
-    <div class="col-sm-1">
+    <div class="col-sm-2">
 	  <p>Montadora</p>
       <select name="montadora">
 		<% for(var i = 0; i < montadora.length; i++){ %>
@@ -17,7 +17,7 @@
         <% } %>
       </select>      
     </div>
-    <div class="col-sm-1">
+    <div class="col-sm-2">
 	  <p>Veiculo</p>
       <select name="veiculo">
 		<% for(var i = 0; i < veiculo.length; i++){ %>
@@ -49,7 +49,7 @@
         <% } %>
       </select>      
     </div>
-	<div class="col-sm-2">
+	<div class="col-sm-1">
 		<p>Ano Inicial</p>
 		<input type="text" name="anoinicial">  
 	</div>
@@ -57,7 +57,7 @@
 		<p>Ano Final</p>
 		<input type="text" name="anofinal">  
 	</div>
-	<div class="col-sm-2">
+	<div class="col-sm-1">
 		<button type="submit">Cadastrar Aplicação</button>
 	</div>
   </form> 

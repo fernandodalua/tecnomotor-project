@@ -112,4 +112,13 @@ router.post('/cadastratiposistema', function(req, res) {
         })
 });
 
+router.get('/removeveiculo/:id', function(req, res) => {
+	const id = req.params.id;
+	DB.run('DELETE FROM VEICULO WHERE VEIID =?',id);
+	DB.all('SELECT * FROM VEICULO',(err, results) => {
+		console.log(results);
+		res.render('veiculo', {page:'Veiculo', menuId:'veiculo', veiculo: results});
+	})
+});
+
 module.exports = router;

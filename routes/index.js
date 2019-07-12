@@ -121,30 +121,31 @@ router.get('/removemontadora/:id', function(req, res) {
 router.get('/removeveiculo/:id', function(req, res) {
 	const id = req.params.id;
 	DB.run('DELETE FROM VEICULO WHERE VEIID =?',id);
-	DB.all('SELECT * FROM VEICULO',(err, results) => {
-		console.log(results);
-		res.render('veiculo', {page:'Veiculo', menuId:'veiculo', veiculo: results});
-	})
+	res.redirect('/veiculo'); 
 });
 
 router.get('/removeconector/:id', function(req, res) {
 	const id = req.params.id;
 	DB.run('DELETE FROM CONECTOR WHERE CONID =?',id);
+	res.redirect('/conector'); 
 });
 
 router.get('/removesistema/:id', function(req, res) {
 	const id = req.params.id;
 	DB.run('DELETE FROM SISTEMA WHERE SISID =?',id);
+	res.redirect('/sistema'); 
 });
 
 router.get('/removetiposistema/:id', function(req, res) {
 	const id = req.params.id;
 	DB.run('DELETE FROM TIPOSISTEMA WHERE TPSID =?',id);
+	res.redirect('/tiposistema'); 
 });
 
 router.get('/removeaplicacao/:id', function(req, res) {
 	const id = req.params.id;
 	DB.run('DELETE FROM APLICACAO WHERE APLID =?',id);
+	res.redirect('/'); 
 });
 
 module.exports = router;

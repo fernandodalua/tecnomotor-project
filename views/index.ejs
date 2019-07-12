@@ -10,6 +10,7 @@
   <div class="row">
   <form action="/cadastraaplicacao" method="POST">
     <div class="col-sm-1">
+	  <p>Montadora</p>
       <select name="montadora">
 		<% for(var i = 0; i < montadora.length; i++){ %>
           <option value="<%= montadora[i].MONID %> "> <%= montadora[i].MONNOME %> </option>
@@ -17,6 +18,7 @@
       </select>      
     </div>
     <div class="col-sm-1">
+	  <p>Veiculo</p>
       <select name="veiculo">
 		<% for(var i = 0; i < veiculo.length; i++){ %>
           <option value="<%= veiculo[i].VEIID %> "> <%= veiculo[i].VEINOME %> </option>
@@ -24,6 +26,7 @@
       </select>      
     </div>
     <div class="col-sm-1">
+	  <p>Conector</p>
       <select name="conector">
 		<% for(var i = 0; i < conector.length; i++){ %>
           <option value="<%= conector[i].CONID %> "> <%= conector[i].CONNOME %> </option>
@@ -31,6 +34,7 @@
       </select>      
     </div>
 	<div class="col-sm-1">
+	  <p>Sistema</p>
       <select name="sistema">
 		<% for(var i = 0; i < sistema.length; i++){ %>
           <option value="<%= sistema[i].SISID %> "> <%= sistema[i].SISNOME %> </option>
@@ -38,6 +42,7 @@
       </select>      
     </div>
 	<div class="col-sm-1">
+	  <p>Tipo Sistema</p>
       <select name="tiposistema">
 		<% for(var i = 0; i < tiposistema.length; i++){ %>
           <option value="<%= tiposistema[i].TPSID %> "> <%= tiposistema[i].TPSNOME %> </option>
@@ -45,11 +50,11 @@
       </select>      
     </div>
 	<div class="col-sm-2">
-		<p>Ano Inicial</p><br>
+		<p>Ano Inicial</p>
 		<input type="text" name="anoinicial">  
 	</div>
 	<div class="col-sm-2">
-		<p>Ano Final</p><br>
+		<p>Ano Final</p>
 		<input type="text" name="anofinal">  
 	</div>
 	<div class="col-sm-2">
